@@ -19,6 +19,17 @@ jobs:
         shell: bash
         run: |
           ls -la
+        
+      - name: Build image
+        shell: bash
+        run: |
+          docker build -t testimage .
+      
+      - name: Check image
+        shell: bash
+        run: |
+          docker images
+          
 #         with:
 #           token: "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"
 #           ref: ${{github.event.inputs.git-tag}}
