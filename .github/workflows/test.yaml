@@ -1,0 +1,31 @@
+
+name: Test deploy
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  build-and-deploy:
+    name: Test develop
+
+
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v3.1.0
+#         with:
+#           token: "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"
+#           ref: ${{github.event.inputs.git-tag}}
+#           submodules: recursive
+#           fetch-depth: 0
+#         env:
+#           GIT_SSH_KEY: ${{ secrets.GIT_SSH_KEY }}
+
+#       - name: Workaround for ownership issue
+#         run: |
+#           git config --global --add safe.directory "$GITHUB_WORKSPACE"
+#       - name: Update submodules
+#         shell: bash
+#         run: |
+#           git submodule foreach '( if [ "$(basename $PWD)" = ".skaffold" ]; then git fetch;git checkout master; git pull; fi )'
