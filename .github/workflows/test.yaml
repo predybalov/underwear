@@ -23,10 +23,11 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: "22"
           script: |
-            cd wear
-            ls -la
-            docker compose restart
-#            docker run --name test -e POSTGRES_PASSWORD=test postgres:15.2-alpine3.17
+            git pull
+            cd underwear
+            docker compose up --build -d
+            
+
         
 #       - name: Check content
 #         shell: bash
