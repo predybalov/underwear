@@ -15,20 +15,27 @@ jobs:
       - name: Git checkout
         uses: actions/checkout@v3.1.0
         
-      - name: Check content
-        shell: bash
-        run: |
-          ls -la
+#       - name: Check content
+#         shell: bash
+#         run: |
+#           ls -la
         
-      - name: Build image
-        shell: bash
-        run: |
-          docker build -t testimage .
+#       - name: Build image
+#         shell: bash
+#         run: |
+#           docker build -t testimage .
       
-      - name: Check image
+#       - name: Check image
+#         shell: bash
+#         run: |
+#           docker images
+          
+      - name: SSH to VM
         shell: bash
         run: |
-          docker images
+          echo ${{ secrets.SSH_PRIVATE_KEY }} >> ~/.ssh/testkey
+          chmod 600 ~/.ssh/testkey
+          ssh -i ~/.ssh/testkey gelios@158.160.43.82 ls wear
           
 #         with:
 #           token: "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"
